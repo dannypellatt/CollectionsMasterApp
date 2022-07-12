@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using CollectionsMasterConsoleUI;
 
 namespace CollectionsMasterConsoleUI
 {
@@ -13,18 +14,20 @@ namespace CollectionsMasterConsoleUI
 
             #region Arrays
             //TODO: Create an integer Array of size 50
-            
+            int[] arr = new int[50];
 
             //TODO: Create a method to populate the number array with 50 random numbers that are between 0 and 50
-            
-
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] = i+1;
+            }
             //TODO: Print the first number of the array
-
+            Console.WriteLine(arr[0]);
             //TODO: Print the last number of the array            
-
+            Console.WriteLine(arr[49]);
             Console.WriteLine("All Numbers Original");
             //UNCOMMENT this method to print out your numbers from arrays or lists
-            //NumberPrinter();
+            NumberPrinter(arr);
             Console.WriteLine("-------------------");
 
             //TODO: Reverse the contents of the array and then print the array out to the console.
@@ -32,44 +35,77 @@ namespace CollectionsMasterConsoleUI
             /*  1) First way, using a custom method => Hint: Array._____(); 
                 2) Second way, Create a custom method (scroll to bottom of page to find ⬇⬇⬇)
             */
-
-            Console.WriteLine("All Numbers Reversed:");
+            Array.Reverse(arr);
+            Console.WriteLine("All Numbers Reversed: ");
+            foreach (var item in arr)
+            {
+                Console.WriteLine(item);
+            }
 
             Console.WriteLine("---------REVERSE CUSTOM------------");
+
+            Methods.ReverseArray(arr);
 
             Console.WriteLine("-------------------");
 
             //TODO: Create a method that will set numbers that are a multiple of 3 to zero then print to the console all numbers
             Console.WriteLine("Multiple of three = 0: ");
-            
+
+            Methods.ThreeToZero(arr);
+          
 
             Console.WriteLine("-------------------");
 
             //TODO: Sort the array in order now
             /*      Hint: Array.____()      */
             Console.WriteLine("Sorted numbers:");
-            
+
+            Array.Sort(arr);
+
+            foreach (var item in arr)
+            {
+                Console.WriteLine(item);
+            }
 
             Console.WriteLine("\n************End Arrays*************** \n");
             #endregion
+
+
+
+
+
+
+            // banging my head against a wall, will come back to the list section later
+
+
+
+
+
+
 
             #region Lists
             Console.WriteLine("************Start Lists**************");
 
             /*   Set Up   */
             //TODO: Create an integer List
-            
+            var lst = new List<int>();
 
             //TODO: Print the capacity of the list to the console
-            
+
 
             //TODO: Populate the List with 50 random numbers between 0 and 50 you will need a method for this            
-            
 
-            //TODO: Print the new capacity
-            
+            static int PopulateList(int lst)
+            {
+                for (int i = 0; i < lst.Count; i++)
+                {
+                    lst.Add(i);
+                }
 
-            Console.WriteLine("---------------------");
+                //TODO: Print the new capacity
+
+
+                Console.WriteLine("---------------------");
 
             //TODO: Create a method that prints if a user number is present in the list
             //Remember: What if the user types "abc" accident your app should handle that!
@@ -100,6 +136,11 @@ namespace CollectionsMasterConsoleUI
             
 
             #endregion
+        }
+
+        private static void ReverseArray()
+        {
+            throw new NotImplementedException();
         }
 
         private static void ThreeKiller(int[] numbers)
